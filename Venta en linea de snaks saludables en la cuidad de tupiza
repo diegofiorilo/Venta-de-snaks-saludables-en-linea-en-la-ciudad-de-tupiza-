@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Snaks Saludables Tupiza — Snacks nutritivos y locales</title>
+  <meta name="description" content="Venta en línea de snacks saludables en Tupiza: frutos secos, barras energéticas y mixes nutritivos. Entrega a domicilio y retiro en tienda." />
+  <style>
+    :root{--accent:#2f855a;--muted:#6b7280;--bg:#f8fafc}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, Arial, sans-serif; margin:0; color:#0f172a; background:var(--bg)}
+    header{background:white;box-shadow:0 2px 6px rgba(15,23,42,0.06);position:sticky;top:0;z-index:10}
+    .container{max-width:1024px;margin:0 auto;padding:20px}
+    .nav{display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#d1fae5,#c7f9e6);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent)}
+    nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-weight:600}
+    .hero{display:flex;gap:30px;align-items:center;padding:48px 0}
+    .hero-left{flex:1}
+    .hero h1{font-size:28px;margin:0 0 12px}
+    .hero p{margin:0 0 18px;color:var(--muted)}
+    .cta{background:var(--accent);color:white;padding:12px 18px;border-radius:10px;border:none;font-weight:700;cursor:pointer}
+    .hero-right{flex:1}
+    .card{background:white;padding:16px;border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+
+    /* Productos */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:22px}
+    .product{background:white;border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+    .product img{width:100%;height:160px;object-fit:cover}
+    .product-body{padding:12px;flex:1;display:flex;flex-direction:column}
+    .product-body h3{margin:0 0 6px;font-size:16px}
+    .price-qty{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+    .price{font-weight:800;color:var(--accent)}
+    .order-btn{background:#0ea5a6;color:white;border:none;padding:8px 10px;border-radius:8px;cursor:pointer}
+
+    /* Secciones */
+    section{padding:34px 0}
+    .about{display:flex;gap:24px;align-items:center}
+    .about img{width:260px;border-radius:12px}
+    footer{padding:22px 0;color:var(--muted);font-size:14px}
+
+    /* Form */
+    form{display:grid;gap:10px}
+    input,select,textarea{padding:10px;border-radius:8px;border:1px solid #e6edf3}
+    .row{display:flex;gap:10px}
+    @media(max-width:720px){.hero{flex-direction:column}.about{flex-direction:column}.about img{width:100%}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">SS</div>
+        <div>
+          <div style="font-weight:800">Snaks Saludables Tupiza</div>
+          <div style="font-size:12px;color:var(--muted)">Frutos secos • Barras • Mix energéticos</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#productos">Productos</a>
+        <a href="#pedido">Pedir</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Snaks saludables hechos en Tupiza — energía y sabor natural</h1>
+        <p>En Snaks Saludables Tupiza ofrecemos mixes de frutos secos, barras energéticas y snacks sin preservantes, pensados para estudiantes, deportistas y quienes buscan opciones más nutritivas durante el día.</p>
+        <div style="display:flex;gap:12px">
+          <button class="cta" onclick="document.getElementById('pedido').scrollIntoView({behavior:'smooth'})">Realizar pedido</button>
+          <a href="#productos" style="align-self:center;color:var(--muted);font-weight:700;text-decoration:none">Ver catálogo →</a>
+        </div>
+        <p style="margin-top:12px;color:var(--muted);font-size:13px">Entrega en Tupiza: domicilio y retiro en punto de venta. Pago en efectivo o transferencia.</p>
+      </div>
+      <div class="hero-right">
+        <div class="card">
+          <h3 style="margin:0 0 10px">Producto destacado</h3>
+          <img src="https://images.unsplash.com/photo-1511689985-38a1b3a1f0ce?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Mix de frutos secos" style="width:100%;border-radius:8px;margin-bottom:10px">
+          <p style="margin:0;color:var(--muted)">Mix energético con almendras, maní, pasas y semillas de chía. Porción ideal para estudio o entrenamiento.</p>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+            <div style="font-weight:800;color:var(--accent)">Bs. 20</div>
+            <button class="order-btn" onclick="addToForm('Snack saludable',20)">Pedir</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="productos">
+      <h2>Catálogo</h2>
+      <div class="grid">
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Mix frutos secos">
+          <div class="product-body">
+            <h3>Mix de frutos secos — 200g</h3>
+            <p style="margin:0;color:var(--muted);font-size:13px">Almendras, maní, pasas y semillas. Sin azúcares añadidos.</p>
+            <div class="price-qty">
+              <div class="price">Bs. 20</div>
+              <button class="order-btn" onclick="addToForm('Snack saludable',20)">Pedir</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1580910051077-0b5a6d3f9b5d?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Barras energeticas">
+          <div class="product-body">
+            <h3>Barras energéticas — 50g</h3>
+            <p style="margin:0;color:var(--muted);font-size:13px">Avena, miel natural y frutos secos. Perfectas para llevar.</p>
+            <div class="price-qty">
+              <div class="price">Bs. 20</div>
+              <button class="order-btn" onclick="addToForm('Snack saludable',20)">Pedir</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1604908177522-6e3c2f9b8e2f?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Mix sin sal">
+          <div class="product-body">
+            <h3>Snack salado sin sal — 150g</h3>
+            <p style="margin:0;color:var(--muted);font-size:13px">Semillas tostadas y mani, sazonado natural bajo en sodio.</p>
+            <div class="price-qty">
+              <div class="price">Bs. 20</div>
+              <button class="order-btn" onclick="addToForm('Snack saludable',20)">Pedir</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1523986371872-9d3ba2e2f642?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Mix para deportistas">
+          <div class="product-body">
+            <h3>Pack deportista — 3 unidades</h3>
+            <p style="margin:0;color:var(--muted);font-size:13px">Combina barras y mix para antes/pos entrenamiento.</p>
+            <div class="price-qty">
+              <div class="price">Bs. 20</div>
+              <button class="order-btn" onclick="addToForm('Snack saludable',20)">Pedir</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="pedido">
+      <h2>Realizar pedido</h2>
+      <div class="card">
+        <form id="orderForm" onsubmit="submitOrder(event)">
+          <div class="row">
+            <input type="text" id="clienteNombre" placeholder="Tu nombre" required />
+            <input type="tel" id="clienteTelefono" placeholder="Teléfono (ej: 7XXXXXXXX)" required />
+          </div>
+          <input type="text" id="direccion" placeholder="Dirección para entrega (o escribe 'Retiro')" required />
+          <select id="productoSelect">
+            <option>Mix de frutos secos - 200g — Bs.10</option>
+            <option>Barra energética - 50g — Bs.6</option>
+            <option>Snack salado sin sal - 150g — Bs.8</option>
+            <option>Pack deportista - 3 uds — Bs.25</option>
+          </select>
+          <div class="row">
+            <input type="number" id="cantidad" min="1" value="1" required />
+            <select id="metodoPago">
+              <option>Pago en efectivo (al entregar)</option>
+              <option>Transferencia bancaria</option>
+            </select>
+          </div>
+          <textarea id="nota" rows="3" placeholder="Nota / horario de entrega (opcional)"></textarea>
+          <div style="display:flex;gap:10px;align-items:center">
+            <button class="cta" type="submit">Enviar pedido</button>
+            <div style="color:var(--muted);font-size:13px">Tiempo estimado: 1-2 horas dentro de Tupiza.</div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap">
+        <div style="flex:1;min-width:260px">
+          <p style="margin:0">Email: <strong>ventas@snakstupiza.bo</strong></p>
+          <p style="margin:0">Teléfono/WhatsApp: <strong>+591 7XXXXXXX</strong></p>
+          <p style="margin:0">Punto de retiro: Calle Principal N°123, Tupiza (consultar horario)</p>
+        </div>
+        <div style="flex:1;min-width:260px">
+          <p style="margin:0 0 8px;color:var(--muted)">Síguenos en redes (placeholder):</p>
+          <div style="display:flex;gap:8px">
+            <div style="padding:8px 12px;border-radius:8px;background:white;box-shadow:0 4px 12px rgba(15,23,42,0.04)">Facebook</div>
+            <div style="padding:8px 12px;border-radius:8px;background:white;box-shadow:0 4px 12px rgba(15,23,42,0.04)">Instagram</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <div>
+        <h2>Sobre el emprendimiento</h2>
+        <p style="color:var(--muted)">Proyecto local de alimentos saludables. Elaboramos snacks con insumos naturales y apoyo a pequeños productores de la región. Nuestra misión: ofrecer opciones nutritivas, sabrosas y accesibles en Tupiza.</p>
+        <p style="color:var(--muted);font-size:13px;margin-top:6px">Proyecto creado por: <strong>Diego Fiorilo</strong> — Colegio Nacional Mixto Suipacha de Tupiza (si deseas, añadimos logo del colegio).</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Nuestra producción">
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+        <div>© 2025 Snaks Saludables Tupiza — Hecho con ❤️ en Tupiza</div>
+        <div style="color:var(--muted);font-size:13px">Política de privacidad • Términos de venta</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function addToForm(product, price){
+      const select = document.getElementById('productoSelect');
+      const option = document.createElement('option');
+      option.text = product + ' — Bs.'+price;
+      option.selected = true;
+      select.add(option, 0);
+      document.getElementById('pedido').scrollIntoView({behavior:'smooth'});
+    }
+
+    function submitOrder(e){
+      e.preventDefault();
+      const nombre = document.getElementById('clienteNombre').value;
+      const telefono = document.getElementById('clienteTelefono').value;
+      const producto = document.getElementById('productoSelect').value;
+      const cantidad = document.getElementById('cantidad').value;
+      alert('Pedido recibido:\n' + nombre + '\n' + telefono + '\n' + producto + ' x' + cantidad + '\n\nNos contactaremos para confirmar.');
+      document.getElementById('orderForm').reset();
+    }
+  </script>
+</body>
+</html>
